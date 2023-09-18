@@ -1,5 +1,5 @@
 def prixTTC(ht: float, tva: float) -> float :
-    """_
+    """
     Préconditions: ht > 0, tva >= 0
     
     Retourne le prix hors taxes (ht) avec des taxes (tva)  
