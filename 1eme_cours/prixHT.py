@@ -1,3 +1,4 @@
+#Exercice 1.2 Question 1
 def prix_ht(prix: float, tva: float) -> float :
     """
     Préconditions: tva >= 0, 

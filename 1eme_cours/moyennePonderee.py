@@ -1,3 +1,4 @@
+#Exercice 1.1 Question 2
 def moyenne_ponderee(a: float, b: float, c: float, pa: float, pb: float, pc:float) -> float :
     """ 
         Retourne la moyenne pondérée de nombres

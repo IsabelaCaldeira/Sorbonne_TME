@@ -1,5 +1,6 @@
+#Exercice 1.1 Question 1
 def moyenne_trois_nb(nombre1: float, nombre2: float, nombre3: float) -> float :
-    """ 
+    """
         Retourne la moyenne de trois nombres flotantes pour arriver à la moyenne 
     """
     return (nombre1 + nombre2 + nombre3)/3
