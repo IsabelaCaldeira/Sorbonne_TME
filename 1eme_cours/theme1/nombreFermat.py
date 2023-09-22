@@ -11,8 +11,8 @@ assert nombre_fermat(1) == 5
 assert nombre_fermat(2) == 17
 
 #Question 2
-def nombre_premier(n:float)-> str:
-    """Pŕeconditions n => 0
+def nombre_premier(n1 :float)-> float:
+    """Pŕeconditions n1 => 0
     Vérifier si Fn est premier ou non-premier.
     """
-   
+    
