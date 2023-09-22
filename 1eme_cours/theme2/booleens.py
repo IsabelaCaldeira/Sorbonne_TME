@@ -37,6 +37,7 @@ assert non(non(3 == 1 + 2)) == True
 
 #Exercice 2.6 Question 3 
 def implique(p: bool, q: bool) -> bool:
+    """Retourne le résultat de 'p implique q"""
     if(ou(non(p), q == True)):
         return True
     else:
@@ -47,6 +48,7 @@ assert implique(True, False) == False
 assert implique(True, 3 == 3) == True
 
 def ou_exclusif(p: bool, q: bool) -> bool:
+    """Retourne le résultat de 'p xor q'"""
     if(et(p, q == True)):
         return False
     elif(ou(p,q == True)):
@@ -57,3 +59,14 @@ def ou_exclusif(p: bool, q: bool) -> bool:
 assert ou_exclusif(True, False) == True
 assert ou_exclusif(3 == 2, 3 == 3) == True
 assert ou_exclusif(2 == 2, 3 == 3) == False
+
+def equivalent(p: bool, q: bool)-> bool:
+    """Retourne True si et seulement si p et q sont équivalents."""
+    if(ou(et(p,q) == True, et(p,q) == False)):
+        return True
+    else: 
+        return False
+    
+assert equivalent(True, 3 == 3) == True
+assert equivalent(True, 3 == 4) == False
+assert equivalent(3 == 2, 3 == 8) == True
