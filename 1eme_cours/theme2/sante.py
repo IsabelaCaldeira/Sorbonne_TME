@@ -1,4 +1,4 @@
-#Exercice 2 Question 1
+#Exercice 2 Question 2
 def sante(x : float) -> str:
     """Retourne Bonne santé si x vaut 37.5, retourne "Malade" sinon.
     """
