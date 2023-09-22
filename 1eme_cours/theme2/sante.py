@@ -10,5 +10,7 @@ def sante(x : float) -> str:
 assert sante(38) == "Malade"
 assert sante(37.5) == "Bonne santé"
 
-"Le code vérifie si la condition de x est vrai et retourne des responses pour chaque condition"
+#*** La fonction comme l'enonce propose ne marche pas, à cause de ça le '=' de 'x = 37,5'
+# était changé par 'x == 37,5" pour que la fonction donne la bonne response
+#Le code vérifie si la condition de x est vrai et retourne des responses pour chaque condition
 
