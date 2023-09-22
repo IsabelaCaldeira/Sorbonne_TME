@@ -15,3 +15,13 @@ def volume_tetraedre(a: float, b: float, c: float, d: float, e: float, f: float)
 
 assert volume_tetraedre(1, 1, 1, 1, 1, 1) == 0.11785113019775792
 assert volume_tetraedre(2, 2, 2, 2, 2, 2) == 0.9428090415820634
+
+#Exercice 2.5 Question 2 
+def volume_tetraedre_regulier(longeur: float) -> float:
+    """Précondition longeur > 0
+    Retourne le volume d'un téatrèdre régulier
+    """
+    return volume_tetraedre(longeur, longeur, longeur, longeur, longeur, longeur)
+
+assert volume_tetraedre_regulier(1) == 0.11785113019775792
+assert volume_tetraedre_regulier(2) == 0.9428090415820634
