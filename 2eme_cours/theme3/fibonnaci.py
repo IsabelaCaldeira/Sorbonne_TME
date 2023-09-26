@@ -16,12 +16,8 @@ def fibo_diff(n: int) -> float:
     """Préconditions: n >= 2
     Renvoie le k-ième de le terme n"""
 
-    i : float = 2
-    while i >= n:
-        return fibo_diff(n) / fibo_diff(n-1)        
-print(fibo_diff(5))
+    return fibonacci(n) // fibonacci(n-1)        
 
-    
 
     
     
