@@ -10,16 +10,13 @@ def fibonacci(n:int)->int:
     else:
         return fibonacci(n - 1) + fibonacci(n - 2)
         
+assert fibonacci(8) == 21
+
 #Exercice 3.5 Question 2
+
 #Exercice3.5 Question 3
 def fibo_diff(n: int) -> float:
     """Préconditions: n >= 2
     Renvoie le k-ième de le terme n"""
 
-    return fibonacci(n) // fibonacci(n-1)        
-
-
-    
-    
-
-
+    return fibonacci(n) // fibonacci(n-1)

@@ -17,3 +17,7 @@ def mention(note: float) -> str:
 assert mention(19) == "TB"
 assert mention(7) == "Eliminé"
 assert mention(12) == "AB"
+
+def teste():
+    femme_homme : str = ""
+    if()
