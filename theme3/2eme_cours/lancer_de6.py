@@ -40,15 +40,15 @@ def frequence_valeur(r: int, n: int) -> float:
     retourne la fréquence d’apparition de la valeur r lors de n lancers
     """
     frequence : float = 0
-    k : int = 1 
-    while k <= n - 1:
+    k : int 
+    for k in range(1, n-1):
         if lancer_de6() == r:
             frequence = frequence + 1
-        k = k + 1
         
     return frequence/n 
     
 assert frequence_valeur(1, 1) == 0
+assert frequence_valeur(1, 10) == 0.2
 
 #Exercice 3.8 Question 5 
 def lancer_de_n(n: int) -> int:
