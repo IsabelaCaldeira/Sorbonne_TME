@@ -7,7 +7,7 @@ def suite_racine(x: int, n: int) -> float:
     u : float = 1.0
     
     while i < n:
-        u = (u+x/u)/2
+        u = ((u+x/u)/2)
         i = i + 1
 
     return u             
@@ -54,3 +54,4 @@ def approx_racine_eps(x : int, e: float) -> float:
 
 assert approx_racine_eps(4, 0.1) == 2.000609756097561
 assert approx_racine_eps(4, 0.0001) == 2.000000000000002
+

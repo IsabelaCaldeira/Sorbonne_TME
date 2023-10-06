@@ -24,5 +24,9 @@ assert est_divisible_par(2,4) == False
 assert est_divisible_par(4,2) == True
 
 #Exercice 3.4 Question 3 
+def ppcm(a: int, b: int) -> int:
+    """Précondition: a>0, b>0
+    Renvoie le plus petit entier naturel non nul qui est un multiple commun à a et b."""
+    
     
 
