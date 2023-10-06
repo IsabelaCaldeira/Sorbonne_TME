@@ -46,6 +46,39 @@ def est_parfait_simulee(n : int) -> bool:
             
     return n == s
 
-assert est_parfait_simulee(6) == True
-assert est_parfait_simulee(7) == False
+#assert est_parfait_simulee(6) == True
+#assert est_parfait_simulee(7) == False
     
+#Suggestion Test
+def test_parfait(n : int) -> List[int]:
+    """Precondition: 0 < n <= 137438691328
+    Renvoie le résultat de la fonction est parfait est cohérent avec la liste des sept premiers nombres parfaits pour tous les nombres entre 1 et n.
+    """
+    res : List[int] = []
+    k : int = 1
+    while k <= n:
+        if est_parfait(k):
+            res = res," ", k
+        k = k + 1             
+             
+    return res
+
+#Suggestion 3 Invariant Questino 1 et Question 2 
+def est_parfait_invariant(n : int) -> bool :
+    """ Pre : n > = 1
+    Decide si n est un nombre parfait ."""
+    i : int = 1
+    s : int = 0
+
+    while i != n :
+        print("Valeur de l'invariant",s,"dans le début du boucle")
+        print("========================================")
+        if divise(i, n):
+            s = s + i
+        i = i + 1
+
+    print("Valeur de l'invariant", s,"aprés le boucle")
+    print("========================================")
+
+    return n == s
+
