@@ -1,3 +1,4 @@
+import math 
 #Exercice 1 
 def divise (k : int , n : int) -> bool :
     """ Pre : k > 0 and n > = 0
@@ -49,19 +50,30 @@ def est_parfait_simulee(n : int) -> bool:
 #assert est_parfait_simulee(6) == True
 #assert est_parfait_simulee(7) == False
     
-#Suggestion Test
-def test_parfait(n : int):
-    """Precondition: 0 < n <= 137438691328
-    Renvoie le résultat de la fonction est parfait est cohérent avec la liste des sept premiers nombres parfaits pour tous les nombres entre 1 et n.
+#2 Suggestion : Test
+def test_parfait(n:int):
+    """précondition : 1<=n<=137438691328
+    décide si le résultat de la fonction est_parfait est cohérent avec la li
+    ste des sept premiers nombres parfaits pour tous les nombres entre 1 et n.
     """
-    res = []
-    k : int = 1
-    while k <= n:
-        if est_parfait(k):
-            res = res," ", k
-        k = k + 1             
-             
-    return res
+    k : int
+    i : int
+    a  = []
+    for k in range(1, n+1):
+        result : bool = est_parfait(k)
+        
+        # Calculer le nombre parfait associé à k
+        somme_diviseurs : int = 0
+        for i in range(1, k):
+            if k % i == 0:
+                somme_diviseurs = somme_diviseurs + i
+        
+        if ((result) and (somme_diviseurs == k)):
+            a.append(k)
+    return a
+
+assert test_parfait(42)== [6, 28]
+assert test_parfait(6)==[6]
 
 #Suggestion 3 Invariant Question 1 et Question 2 
 def est_parfait_invariant(n : int) -> bool :
@@ -159,3 +171,95 @@ def est_parfait_tableau(n : int)-> bool:
 est_parfait_tableau(9)
 assert est_parfait_fichier(6) == True
 assert est_parfait_fichier(7) == False
+
+#5 Suggestion : Comparaison de complexité
+#Question 1
+def est_parfait_appels(n:int)->int:
+    """précondition : n>=1
+    affiche le nombre de fois où la fonction divise a été appelée
+    """
+    print(n-1,"appels à la fonction divise dans la fonction est_parfait \n")
+    return (n-1)
+
+
+assert est_parfait_appels(100)==99
+
+#Question 2
+def est_parfait_opti(n : int) -> bool :
+    """ Pre : n >= 1
+    Decide si n est un nombre parfait """
+    s : int = 1
+    i : int = 2
+    if i == 1:
+        return False
+    while i != int(math.sqrt(n)) + 1 :
+        if divise(i, n):
+            if i != math.sqrt(n) :
+                s = s + i + (n // i)
+            else :
+                s = s + i
+        i = i + 1
+    return n == s
+
+assert est_parfait_opti(100)==False
+
+def est_parfait_opti_appels(n:int)->int:
+    """Précondition : n>=1
+    compte le nombre d'appel à divise que fait la fonction est_parfait_opti
+    """
+    i:int=2
+    a:int=0
+    while i != int(math.sqrt(n)) + 1 :
+        if divise(i, n):
+            a=a+1
+        i=i+1
+    print(a,"appels à la fonction divise dans la fonction est_parfait_opti_appels \n")
+    return a
+
+assert est_parfait_opti_appels(100)==4
+            
+#Question 3
+def comparer(n:int)->bool:
+    """précondition : n>=1
+    Estime combien d'appels à divise sont faits lors de l'évaluation de est_parfait(n) et de est_parfait_opti(n) en fonction de n.
+    """
+    return est_parfait_opti_appels(n)<est_parfait_appels(n)
+
+assert comparer(100)==True
+
+#Question 4
+def image(n:int)->Image:
+    """précondition : 1<=n<=200
+    produit une image qui représente les courbes du nombre d'appels à divise des deux fonctions (est_parfait(n) et est_parfait_opti(n)), en fonction de n
+    """
+    return (overlay(draw_line(-1,-1,n,est_parfait_appels(n)),draw_line(-1,-1,n,est_parfait_opti_appels(n))))
+
+#show_image(image(100))
+
+#6 Suggestion : D'autres fonctions
+def celsius_vers_fahrenheit(t : float)->float:
+    """Précondition : t>=-273,15°C
+    Convertir des Degrés Celsius à Fahrenheit
+    """
+    return t*9/5 + 32
+
+assert celsius_vers_fahrenheit(100.0) == 212.0
+assert celsius_vers_fahrenheit(0.0) == 32.0
+
+def fahrenheit_vers_celsius(t: float) -> float:
+    """Précondition : 
+    Convertir des Degrés Fahrenheit à Celsius
+    """
+    return (t-32)*5/9
+
+assert fahrenheit_vers_celsius(212) == 100.0
+assert fahrenheit_vers_celsius(32) == 0.0
+
+def temperature(t: float) -> bool:
+    """
+    Vérifie la validité des deux fonctions précédentes
+    """
+    return celsius_vers_fahrenheit(fahrenheit_vers_celsius(t))==fahrenheit_vers_celsius(celsius_vers_fahrenheit(t))
+
+assert temperature(100.0)==True
+assert temperature(212)==True
