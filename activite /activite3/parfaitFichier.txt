@@ -1,0 +1,13 @@
+Debut de boucle, s=0
+Debut de boucle, i=1
+=============================
+
+Fin du tour1 s=1 Fin du tour 1 i=2
+Fin du tour2 s=1 Fin du tour 2 i=3
+Fin du tour3 s=1 Fin du tour 3 i=4
+Fin du tour4 s=1 Fin du tour 4 i=5
+Fin du tour5 s=1 Fin du tour 5 i=6
+Fin du tour6 s=1 Fin du tour 6 i=7
+=============================
+
+Sortie de boucle s = 1 et n= 7
