@@ -3,7 +3,6 @@ def ord2(n:str)->int:
     """Précondition : n est une chaîne de caractère d'un entier positif de longueur 1
     """
     
-
 def chiffre(n:str)->int:
     """Précondition : n est une chaîne de caractère d'un entier positif de longueur 1
     renvoie l'entier qui correspond
