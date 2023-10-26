@@ -168,7 +168,7 @@ def est_parfait_tableau(n : int)-> bool:
         fichier.close()
     return n == s
 
-est_parfait_tableau(9)
+est_parfait_tableau(100)
 assert est_parfait_fichier(6) == True
 assert est_parfait_fichier(7) == False
 
