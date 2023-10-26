@@ -107,4 +107,3 @@ def mot_mystere(s: str) -> str:
 
 assert mot_mystere('aeiouy') == '______'
 assert mot_mystere('mr brrxcx') == 'mr brrxcx'
-
