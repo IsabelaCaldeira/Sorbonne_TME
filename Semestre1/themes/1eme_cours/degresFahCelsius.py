@@ -8,7 +8,3 @@ def fahrenheit_vers_celsius(t: float) -> float:
 assert fahrenheit_vers_celsius(212) == 100.0
 assert fahrenheit_vers_celsius(32) == 0.0
 assert fahrenheit_vers_celsius(41) == 5.0
-
-    
-    
-    
