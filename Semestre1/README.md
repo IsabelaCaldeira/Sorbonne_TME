@@ -1,4 +1,4 @@
- # TME classes in the first semestre: :blue_heart: 
+ # TME classes in the first semestre :blue_heart: 
 
 
 In the first semestre, we used MrPython as the IDE and Python as the language, then we tried to solve some problems and exercices with the help of those tools.
@@ -9,5 +9,6 @@ There are two types of folders here, because we have some classes with themes an
 
 Also some of the code here is not the finish version because it wasn't used with the same IDE that I used to export to github. So if you find anything that can be update please send up a request for a merge! 
 
-Have fun! <3
+Have fun! :blue_heart: 
+
 ***The typying of variables in Python can also be done with others IDEs if you import the library Typing
