@@ -6,7 +6,7 @@ So in a few words here you will find some of the work done with the skills learn
 
 If you are interested in a specific part, want more details or found some mistakes, send a merge request or open an issue! 
 
-## :thinking: Here is how you can do it!
+## Here is how you can do it!
 
 **Fork this repository** 
 
