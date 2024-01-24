@@ -1,5 +1,3 @@
-
-
 import math as math
 #Exercice 7.4 Question 1
 def pgcd(x:int,y:int)->int:
