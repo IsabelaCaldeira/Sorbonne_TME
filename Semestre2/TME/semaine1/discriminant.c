@@ -12,9 +12,12 @@ int afficheRacines(int a, int b, int c){
         printf("Il n'a pas de racine réelle");
     } else {
         if (d == 0){
-            printf( "Il y a une racine double égale");
+            float x = (-b/(2*a));
+            printf( "Il y a une racine double égale: %f", x);
         } else {
-            printf("Il y a deux racines");
+            float x1 = (-b - sqrt(d))/2*a;
+            float x2 = (-b + sqrt(d))/2*a;
+            printf("Il y a deux racines: %f et %f", x1, x2);
         }
     }
     return 0;
