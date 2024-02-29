@@ -18,31 +18,31 @@ void stats (int v1, int v2, int v3, int v4, int *min, int *max, float *moy){
   
   if(v1<=0) *max = *min = *moy = -1;
   else{
-    float temp = 0.0;
+    float count = 0.0;
     float somme = 0.0;
 
     min_max(v1, min, max);
     somme += v1;
-    temp ++;
+    count ++;
   
     if(v2>0){
       min_max(v2, min, max);
       somme += v2;
-      temp ++;  
+      count ++;  
 
       if(v3>0){
         min_max(v3,min, max);
         somme += v3;
-        temp ++;
+        count ++;
       
         if(v4>0){
           min_max(v4, min, max);
           somme += v4;
-          temp ++;
+          count ++;
         }
       }
     }   
-    *moy = somme/temp;
+    *moy = somme/count;
   }
 }
 /*
