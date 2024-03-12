@@ -14,14 +14,17 @@ int recherche_iter(int *tab, int taille, int elem){
     return -1;
 }
 
+int recherche_rec_aux(int tab[], int taille, int indice, int elem){
+    if(tab[indice] == elem) return indice;
+    else{
+        if(indice == taille) return -1;
+        else return recherche_rec_aux(tab, taille, indice + 1, elem);
+    }
+    
+}
 
 int recherche_rec(int *tab, int taille, int elem){
-    printf(" taille %d et tab[taille -1] %d\n", taille, tab[taille-1]);
-    if(tab[taille - 1] == elem) return taille - 1;
-    else{
-        if(taille == 0) return -1;
-        else return recherche_rec(tab, taille -1, elem);
-    }
+    return recherche_rec_aux (tab, taille, 0, elem);
 }
 
 int main() {
