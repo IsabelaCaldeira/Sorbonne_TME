@@ -1,7 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include <string.h>
+#include <stdbool.h>
+#include <math.h>
+#define SEPARATOR "#<ab@17943918#@>#"
 
-int compt_mots(char *s){
+int compte_mots(char *s){
     int i;
     char temp = ' ';
     int compt = 0;
@@ -12,12 +17,37 @@ int compt_mots(char *s){
     return compt;
 }
 
-int main(){
 
-    char s[100];
-    scanf("%99[^\n]", s);
-    int resposta = compt_mots(s);
-    printf(" %d \n", resposta);
-
-    return 0;
+int main() {
+   {
+    printf("nombre de mots : %d\n",compte_mots("mot1 mot2 mot3"));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("mot1  mot2    mot3"));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("   mot1 mot2 mot3 mot4"));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("mot1 mot2 mot3 mot4 mot5  "));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("   mot1     mot3     "));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("mot1mot2mot3"));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("   mot1mot2mot3   "));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots(""));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("    "));;
+   }
+    printf("%s\n", SEPARATOR);   {
+    printf("nombre de mots : %d\n",compte_mots("mot motpluslong  motcourt  motencorepluslong   "));;
+   }
+        return 0;
 }
