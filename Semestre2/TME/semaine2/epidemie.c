@@ -32,7 +32,7 @@ int main()
         int x = 5;
         float pourcentage = 50.00;
         printf("pop=%d, vitesse=%d, pourcentage=%.2f, nbjours=%d\n", pop, x, pourcentage, jours(x, pop, pourcentage));
-        ;
+
     }
     printf("%s\n", SEPARATOR);
     {
