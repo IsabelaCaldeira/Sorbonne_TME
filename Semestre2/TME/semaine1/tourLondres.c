@@ -1,20 +1,36 @@
 #include <stdio.h>
-#include <assert.h>
+#define TFAMILLE 57.8
+#define TADULTE 22.7
+#define TENFANT 10.75
 
-float prixEntree(int adl, int enf){
-    float res;
-    if((adl == 2) && (enf < 4)){
-        printf("I am inside the if of prixentree\n");
-        res = 57.80;
-        printf("%f", res);
-    } else {
-        res =  adl * 22.7 + enf * 10.75;
-    }
-    printf("%f \n", res);
-    return res;
+float prixEntree(int nb_a, int nb_e){
+	int adu = nb_a;
+	int enf = nb_e;
+	float total = 0;
+	float totalSansFamille = 0;
+	
+	if(adu >= 2 && enf >= 3) {
+		total += TFAMILLE;
+		adu -= 2;
+		enf -= 3;
+	}
+	
+	totalSansFamille = adu * TADULTE + enf * TENFANT;
+	if ((adu <= 2 && enf <= 3) && totalSansFamille < TFAMILLE) total += totalSansFamille;
+	else {
+		if ((adu <= 2 && enf <= 3) && totalSansFamille > TFAMILLE) total += TFAMILLE;
+	}
+	if (adu > 2 || enf > 3) total += totalSansFamille;
+	
+	return total;
 }
 
 int main(){
-    printf("%f", prixEntree(2,3));
-    return 0;
+	int nb_a, nb_e;
+	
+	scanf("%d", &nb_a);
+	scanf("%d", &nb_e);
+	printf("(%d adulte(s), %d enfant(s)) = %.2f livres\n", nb_a, nb_e, prixEntree(nb_a,nb_e));
+	
+	return 0;
 }
