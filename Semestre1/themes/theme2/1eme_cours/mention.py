@@ -1,23 +1,44 @@
-#Exercice 2.2 Question 1
-def mention(note: float) -> str:
-    """Précondition: 0 <= note <= 20
+def mention(x: float) -> str:
+    """Précondition: 0 <= x <= 20
     Retourne le calcul de la mention 
     """
-    if(0 <= note <= 9) :
+    if(x < 10):
         return "Eliminé"
-    elif(10 <= note <= 11):
+    elif(x < 12):
         return "Passable"
-    elif(12 <= note <= 13):
+    elif(x < 14):
         return "AB"
-    elif(14 <= note <= 15):
+    elif(x < 16):
+        return "B"
+    else:
+        return "TB"
+
+assert mention(0) == "Eliminé"
+assert mention(8) == "Eliminé"
+assert mention(10) == "Passable"
+assert mention(12.5) == "AB"
+assert mention(15) == "B"
+assert mention(20) == "TB"
+
+#Exercice 2.2 Question 2
+def mention2(note : float) -> str:
+    """Précondition: 0 <= note <= 20
+    Retourne le calcul de la mention 
+    """    
+    if(note < 12):
+        if(note < 10):
+            return "Eliminé"
+        else:
+            return "Passable"
+    elif(note < 14):
+        return "AB"
+    elif(note < 16):
         return "B"
     else:
         return "TB"
     
-assert mention(19) == "TB"
-assert mention(7) == "Eliminé"
-assert mention(12) == "AB"
-
-def teste():
-    femme_homme : str = ""
-    if()
+assert mention2(0) == "Eliminé"
+assert mention2(8) == "Eliminé"
+assert mention2(10) == "Passable"
+assert mention2(12.5) == "AB"
+assert mention2(15) == "B"
