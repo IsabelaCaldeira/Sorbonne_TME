@@ -43,6 +43,30 @@ assert approx_leibniz(100) == 3.1514934010709914
 assert abs(approx_leibniz(10)-3.232315) < 10**6 
 assert abs(approx_leibniz(100)-3.1514934) < 10**7
 
+#Exercice 2 Suggestion 
+def factorial(q : int) -> int:
+    return math.prod(range(1, q+1))
+
+def Mq(q: int) -> float:
+    return factorial(6*q) / (factorial(3*q) * factorial(q)**3)
+
+def Lq(q: int) -> int:
+    return 545140134*q + 13591409
+
+def Xq(q: int) -> int:
+    return (-262537412640768000)**q
+
+def C() -> float:
+    return 426880 * math.sqrt(10005)
+
+def approx_chudovsky(n: int) -> float:
+    s: float = 0.0
+    q: int = 0
+    while q <= n:
+        s = s + (Mq(q) * Lq(q)) / (Xq(q) * factorial(q)**-1)
+        q = +  1
+    return C() / s
+
 #Exercice 4 Suggestion Aléatoire
 def approx_aleatoire(N: int) -> float:
     """Précondition:
@@ -60,3 +84,17 @@ def approx_aleatoire(N: int) -> float:
     
 assert 2.5 < approx_aleatoire(50) < 3.5
 assert 2.5 < approx_aleatoire(1000) < 3.5
+
+#Exercice 5/6 Suggestion 
+def approx_aleatoire_rec(N: int, a: int = 0, i: int = 0):
+    if i == N:
+        return (a/N)*4
+    else:
+        x = random.random()
+        y = random.random()
+        if math.sqrt(((1/2) - x) ** 2 + ((1/2)-y)**2)<= (1/2):
+            a = a + 1
+        return approx_aleatoire_rec(N, a, i+1)
+
+assert 2.5 < approx_aleatoire_rec(50) < 3.5
+assert 2.5 < approx_aleatoire_rec(1000) < 3.5
