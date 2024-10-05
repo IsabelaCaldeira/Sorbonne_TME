@@ -21,7 +21,7 @@ def fibo_diff(n: int) -> float:
     """Préconditions: n >= 2
     Renvoie le k-ième de le terme n"""
 
-    return fibonacci(n) // fibonacci(n-1)
+    return fibonacci(n) / fibonacci(n-1)
 
 assert fibo_diff(3) == 2
 assert fibo_diff(2) == 1

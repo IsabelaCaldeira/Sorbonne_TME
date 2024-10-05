@@ -15,6 +15,14 @@ def suite_racine(x: int, n: int) -> float:
 assert suite_racine(4, 0) == 1.0
 assert suite_racine(4, 1) == 2.5
 
+def suite_racine2(x : int, n: int) -> float:
+    if(n == 0):
+        return 1
+    return (suite_racine2(x,n-1)+ (x/suite_racine2(x,n-1)))/2
+
+assert suite_racine2(4, 0) == 1.0
+assert suite_racine2(4, 1) == 2.5
+
 #Exercice 3.7 Question 2 
 def approx_racine_stable(n: int) -> float:
     """Précondition: n >= 0
