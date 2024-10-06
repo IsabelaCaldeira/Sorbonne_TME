@@ -51,29 +51,28 @@ def est_parfait_simulee(n : int) -> bool:
 #assert est_parfait_simulee(7) == False
     
 #2 Suggestion : Test
-def test_parfait(n:int):
-    """précondition : 1<=n<=137438691328
-    décide si le résultat de la fonction est_parfait est cohérent avec la li
-    ste des sept premiers nombres parfaits pour tous les nombres entre 1 et n.
-    """
-    k : int
-    i : int
-    a  = []
-    for k in range(1, n+1):
-        result : bool = est_parfait(k)
-        
-        # Calculer le nombre parfait associé à k
-        somme_diviseurs : int = 0
-        for i in range(1, k):
-            if k % i == 0:
-                somme_diviseurs = somme_diviseurs + i
-        
-        if ((result) and (somme_diviseurs == k)):
-            a.append(k)
-    return a
+def test_parfait(n : int) -> bool:
+    """Pre 0 < n < 137 438 691 329
+    Renvoie si est_parfait est bonne"""
 
-assert test_parfait(42)== [6, 28]
-assert test_parfait(6)==[6]
+    if n == 6:
+        return ((n == 6) == est_parfait(n))
+    elif n == 28:
+        return ((n == 28) == est_parfait(28))
+    elif n == 496:
+        return ((n == 496) == est_parfait(496))
+    elif n == 8128:
+        return (n == 33550336) == est_parfait(33550336)
+    elif n == 8589869056:
+        return (n == 8589869056) == est_parfait(8589869056)
+
+    elif n == 137438691328:
+        return (n ==137438691328) == est_parfait(137438691328)
+    else:
+        return  False == est_parfait(n)
+    
+assert test_parfait(6) == True
+assert test_parfait(7) == True
 
 #Suggestion 3 Invariant Question 1 et Question 2 
 def est_parfait_invariant(n : int) -> bool :
