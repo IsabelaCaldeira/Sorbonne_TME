@@ -1,5 +1,5 @@
 #Exercice 5.9 Question 1
-def moins_lettre(c:str, a:str) -> Optional[str]:
+def moins_lettre(c:str, a:str) -> str:
     """len(a) && len(c) >= 0
     Renvoie la chaîne obtenue à partir de la chaîne c en supprimant la première occurence de la lettre a dans c si c contient au moins une fois a sinon None"""
     i: int    
