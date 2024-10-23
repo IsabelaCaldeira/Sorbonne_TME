@@ -1,6 +1,7 @@
 # TME6 Caldeira Ribeiro Cruz Isabela 21307818
 from typing import List
 from typing import Tuple 
+from typing import Optional
 
 #Exercice 7.6 Question 1
 Etudiant = Tuple[str, str, int, List[int]]
