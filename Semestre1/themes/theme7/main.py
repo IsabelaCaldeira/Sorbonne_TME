@@ -1,3 +1,6 @@
+from typing import List
+from typing import Tuple 
+
 import math as math
 #Exercice 7.4 Question 1
 def pgcd(x:int,y:int)->int:
@@ -125,4 +128,6 @@ def alignement(L:List[Point])->bool:
 
 assert alignement([(0,0),(1,1),(5,5)])
 assert not(alignement([(0,0),(1,1),(5,5),(1,0)]))
+
+
         
