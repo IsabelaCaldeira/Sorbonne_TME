@@ -225,7 +225,6 @@ def pdc(p_str: str) -> List[int]:
             coeff = term
             exponent = 0
         
-        # Remove leading and trailing spaces manually
         start: int = 0
         end: int = len(coeff)
         
@@ -250,7 +249,6 @@ def pdc(p_str: str) -> List[int]:
 assert pdc(cdp(normalise(ex1))) == normalise(ex1)
 assert pdc(cdp(normalise(ex2))) == normalise(ex2)
 
-          
 #Suggestion 6
 def cdegre(pol:CPolyn)->int:
     """
@@ -261,15 +259,55 @@ def cdegre(pol:CPolyn)->int:
             deg_max=deg
     return deg_max
 
-assert cdegre (cex1) == 2
+assert cdegre(cex1)==2
+assert cdegre(cex3)==0
+assert cdegre(cex4)==0
 
-def cnormalise(pol: CPolyn) -> CPolyn:
-    """Renvoie la forme normale du polynome entre"""
-    d:int=cdegre(pol)
-    res:CPolyn=[(0,0)]*len(pol)
-    for (coeff,deg) in pol:
-        if coeff!=0:
-            if d>=deg and deg>d-2:
-                res[d]=(coeff,deg)
-        d=d-1
+def cnormalise(pol:CPolyn)->CPolyn:
+    """
+    Renvoie la forme normale du polynome entre"""
+    res: CPolyn = []
+    for coeff, deg in pol:
+        if coeff != 0:
+            res.append((coeff, deg))
+    return res[::-1]
+
+assert cnormalise(cex1) == [(2 ,2),(3,0)]
+
+
+def standard_de_creux(pol: CPolyn) -> Polyn:
+    """Convertit un polynôme de sa représentation creux à sa représentation standard."""
+    if len(pol) == 0:
+        return []
+    res : Polyn = []
+    deg_max : int  = 0
+    for coeff, deg in pol:
+        if deg > deg_max and coeff != 0:
+            deg_max = deg
+    
+    res = [0] * (deg_max + 1)
+    
+    for coeff, deg in pol:
+        if coeff != 0:
+            res[deg] = coeff
+    
     return res
+
+assert standard_de_creux(cex1) == normalise(ex1)
+assert standard_de_creux(cex3) == ex3
+assert standard_de_creux(cex4) == normalise(ex4)
+
+def creux_de_standard(pol: Polyn) -> CPolyn:
+    """Convertit un polynôme de sa représentation standard à sa représentation creux."""
+    res: CPolyn = []
+    deg : int = 0
+    coeff : int
+    for coeff in pol:
+        if coeff != 0:
+            res.append((coeff, deg))
+        deg = deg + 1
+    
+    return res[::-1]
+
+assert creux_de_standard(ex1) == cnormalise(cex1)
+
