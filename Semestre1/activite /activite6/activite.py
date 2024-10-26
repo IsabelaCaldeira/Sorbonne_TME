@@ -1,4 +1,5 @@
 import math
+from typing import Tuple, List
 
 Point = Tuple[float , float]
 Courbe = List[Point]
