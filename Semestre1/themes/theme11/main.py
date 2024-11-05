@@ -1,4 +1,5 @@
 import math
+from typing import Callable, List, Tuple
 #Exercice 11.4 Question 1
 def f_fun(x: float) -> float:
     """Précondition:
@@ -60,6 +61,41 @@ def resolution(n:int)->float:
     return approx_newton(g,dg,0.5,n)
 
 assert resolution(5)==0.8654740331109566
+
+#Exercice 11.5 Question 1 
+def f_fun(x: float) -> float:
+    """Calculates f(x) = x^2 - 2"""
+    return x**2 - 2
+
+def f_deriv(x: float) -> float:
+    """Calculates f'(x) = 2x"""
+    return 2 * x
+
+#Exercice 11.5 Question 2
+def approx_newton(f: Callable[[float], float], df: Callable[[float], float], x0: float, n: int) -> float:
+    """Calculates the n-th term of the sequence using Newton's method."""
+    if n == 0:
+        return x0
+    else:
+        x1 = x0 - f(x0) / df(x0)
+        return approx_newton(f, df, x1, n - 1)
+
+# Example usage
+print(approx_newton(f_fun, f_deriv, 1.0, 2))  # Output: 1.4166666666666667
+print(approx_newton(f_fun, f_deriv, 1.0, 5))  # Output: 1.4142135623730951
+
+#Exercice 11.5 Question 3 
+def approx_newton_it(f : Callable[[float], float], df : Callable[[float], float]
+, x0 : float, n : int) -> float:
+    """ cf. approx_newton """
+    y : float = x0
+    i : int
+    for i in range(n):
+        y = y - f(y)/df(y)
+    return y
+
+#Exercice 11.5 Question 4
+
 
 #Exercice 11.6 Question 1
 def fmap(f : Callable[[T], U], lst : List[T]) -> List[U]:
