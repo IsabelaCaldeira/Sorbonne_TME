@@ -1,5 +1,7 @@
 # Exercice 9.5  Magasin en ligne
-#Question 1
+from typing import List, Dict, Set
+
+#Exercice 9.5 Question 1
 from typing import Dict, Set
 Magasin : Dict[str, float] = {
     "Sabre Laser": 229.0,
@@ -19,17 +21,17 @@ def prix_moyen(produits: Dict[str, float])->float:
         m = m + produits[i]
     return m/len(produits)
 
-assert prix_moyen(Magasin)==129.06
+assert prix_moyen(Magasin) == 129.06
 
 #Exercice 9.5 Question 3
-def fourchette_prix(mini:float,maxi:float,prix: Dict[str, float])->Set[str]:
-    """Préconditions : mini<=maxi
-    retourne l'ensempble des noms de produits disponibles dans cette fourchette de prix
+def fourchette_prix(mini:float, maxi:float, prix: Dict[str, float])-> Set[str]:
+    """Préconditions : mini <= maxi
+    retourne l'ensemble des noms de produits disponibles dans cette fourchette de prix
     """
     res : Set[str] = set()
     i : str
     for i in prix:
-        if ((mini<=prix[i]) and (maxi>=prix[i])):
+        if ((mini <= prix[i]) and (maxi >= prix[i])):
             res.add(i)
     return res
 
@@ -39,7 +41,7 @@ assert fourchette_prix(50.0,200.0,Magasin)=={'Coussin Linux', 'Mitendo DX', 'Sta
 panier : Dict[str, float] = {"Sabre Laser": 3, "Coussin Linux": 2,"Slip Goldorak": 1}
 
 #Exercice 9.5 Question 5
-def tous_disponibles(Panier: Dict[str, float],Prix: Dict[str,float])->bool:
+def tous_disponibles(Panier: Dict[str, float], Prix: Dict[str,float])-> bool:
     """retourne True si tous les produits demandés sont disponibles ou False sinon
     """
     comp : int = 0
@@ -47,14 +49,14 @@ def tous_disponibles(Panier: Dict[str, float],Prix: Dict[str,float])->bool:
     for i in Panier:
         j : str
         for j in Prix:
-            if i==j:
+            if i == j:
                 comp = comp + 1
-    return comp==len(Panier)
+    return comp == len(Panier)
     
 assert tous_disponibles(panier,Magasin) 
 
 #Exercice 9.5 Question 6
-def prix_achat(Panier: Dict[str, float],Prix: Dict[str, float])->float:
+def prix_achat(Panier: Dict[str, float], Prix: Dict[str, float])-> float:
     """retourne le prix total correspondant
     """
     res : float = 0
@@ -62,11 +64,11 @@ def prix_achat(Panier: Dict[str, float],Prix: Dict[str, float])->float:
     for i in Panier:
         j : str
         for j in Prix:
-            if i==j:
+            if i == j:
                 res = res + Prix[j]*Panier[i]
     return res
 
-assert prix_achat(panier,Magasin)==865.9
+assert prix_achat(panier,Magasin) == 865.9
 
 #Exercice 9.6 Traduction
 Dict_Ang_Fra : Dict[str, str]
@@ -117,7 +119,7 @@ assert composition_dictionnaires({"chat":"cat"}, {"cat":"gatto"}) == {'chat': 'g
 
 
 #Exercice 9.7 Décomposition en facteurs premiers
-#Question 1
+#Exercice 9.7 Question 1
 def valeur_decomposition(decomp:Dict[int,int])->int:
     """calcule le nombre correspondant à decomp
     """
@@ -127,11 +129,11 @@ def valeur_decomposition(decomp:Dict[int,int])->int:
         res = res * (i ** decomp[i])
     return res
 
-assert valeur_decomposition({2:1, 3:1, 5:1})==30
-assert valeur_decomposition({2:3, 7:1})==56
+assert valeur_decomposition({2:1, 3:1, 5:1}) == 30
+assert valeur_decomposition({2:3, 7:1}) == 56
 
 #Exercice 9.7 Question 2
-def decomposition(lst:List[int])->Dict[int,int]:
+def decomposition(lst:List[int])-> Dict[int,int]:
     """Précondition : len(lst)>0
     retourne le dictionnaire correspondant à la décomposition lst
     """
@@ -144,10 +146,10 @@ def decomposition(lst:List[int])->Dict[int,int]:
             res[i] = 1
     return res
 
-assert decomposition([2, 3, 5])=={2: 1, 3: 1, 5: 1}
-assert decomposition([2, 2, 2, 7])=={2: 3, 7: 1}
+assert decomposition([2, 3, 5]) == {2: 1, 3: 1, 5: 1}
+assert decomposition([2, 2, 2, 7]) == {2: 3, 7: 1}
 
-#Question 3
+#Exercice 9.7 Question 3
 def liste_nombres_premiers(n:int)->List[int]:
     """Précondition : n>=2
     renvoie la liste des nombres premiers inférieurs ou égaux à n
@@ -158,13 +160,13 @@ def liste_nombres_premiers(n:int)->List[int]:
     while len(temp)>0:
         p = temp[0]
         res.append(p)
-        temp = [j for j in temp if j%p!=0]
+        temp = [j for j in temp if j%p != 0]
     return res
 
 assert liste_nombres_premiers(10) == [2, 3, 5, 7]
 assert liste_nombres_premiers(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 
-def liste_facteurs_premiers(n:int)->List[int]:
+def liste_facteurs_premiers(n:int)-> List[int]:
     """Précondition : n>=2
     calcule la liste des facteurs premiers (avec répétition) de n
     """
@@ -182,7 +184,7 @@ assert liste_facteurs_premiers(30)==[2, 3, 5]
 assert liste_facteurs_premiers(56)==[2, 2, 2, 7]
 assert liste_facteurs_premiers(13)==[13]
 
-#Question 4
+#Exercice 9.7 Question 4
 def decomposition_facteurs_premiers(n:int)->Dict[int,int]:
     """Précondition : n>=2
     renvoie le dictionnaire correspondant à la décomposition en facteurs premiers de n
@@ -190,6 +192,6 @@ def decomposition_facteurs_premiers(n:int)->Dict[int,int]:
     res : List[int] = liste_facteurs_premiers(n)
     return decomposition(res)
 
-assert decomposition_facteurs_premiers(1024)=={2: 10}
-assert decomposition_facteurs_premiers(30)=={2: 1, 3: 1, 5: 1}
-assert decomposition_facteurs_premiers(56)=={2: 3, 7: 1}
+assert decomposition_facteurs_premiers(1024) == {2: 10}
+assert decomposition_facteurs_premiers(30) == {2: 1, 3: 1, 5: 1}
+assert decomposition_facteurs_premiers(56) == {2: 3, 7: 1}
