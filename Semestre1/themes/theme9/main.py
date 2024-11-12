@@ -1,8 +1,7 @@
 # Exercice 9.5  Magasin en ligne
-from typing import List, Dict, Set
+from typing import List, Dict, Set 
 
 #Exercice 9.5 Question 1
-from typing import Dict, Set
 Magasin : Dict[str, float] = {
     "Sabre Laser": 229.0,
     "Mitendo DX" :127.30,
@@ -11,7 +10,7 @@ Magasin : Dict[str, float] = {
     "Station Nextpresso": 184.60}
 
 #Exercice 9.5 Question 2
-def prix_moyen(produits: Dict[str, float])->float:
+def prix_moyen(produits: Dict[str, float])-> float:
     """Précondition : len(produits)>0
     retourne le prix moyen des produits disponibles
     """
@@ -180,17 +179,17 @@ def liste_facteurs_premiers(n:int)-> List[int]:
             new_n = new_n//p
     return L
 
-assert liste_facteurs_premiers(30)==[2, 3, 5]
-assert liste_facteurs_premiers(56)==[2, 2, 2, 7]
-assert liste_facteurs_premiers(13)==[13]
+assert liste_facteurs_premiers(30) == [2, 3, 5]
+assert liste_facteurs_premiers(56) == [2, 2, 2, 7]
+assert liste_facteurs_premiers(13) == [13]
+assert liste_facteurs_premiers(1024)  == [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 
 #Exercice 9.7 Question 4
 def decomposition_facteurs_premiers(n:int)->Dict[int,int]:
     """Précondition : n>=2
     renvoie le dictionnaire correspondant à la décomposition en facteurs premiers de n
     """
-    res : List[int] = liste_facteurs_premiers(n)
-    return decomposition(res)
+    return decomposition(liste_facteurs_premiers(n))
 
 assert decomposition_facteurs_premiers(1024) == {2: 10}
 assert decomposition_facteurs_premiers(30) == {2: 1, 3: 1, 5: 1}
