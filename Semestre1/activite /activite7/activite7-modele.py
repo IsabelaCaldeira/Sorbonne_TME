@@ -1,4 +1,6 @@
 #Chemins et Labyrinthes 
+from typing import Tuple, List
+
 Coord = Tuple[int, int]
 Dir = str
 
@@ -85,6 +87,8 @@ def deplace_possible(la:Laby,c:Coord,d:Dir)->bool:
         return True
     elif (o and (d=='O')):
         return True
+    else: 
+        return False 
 
 assert deplace_possible(laby1 , (0, 1), "S")
 assert not(deplace_possible(laby1 , (0, 1), "N"))
@@ -153,7 +157,7 @@ def droite(la:Laby,c:Coord,ch:List[Dir])->List[Dir]:
             new_c : Coord = deplace(c,"S")
             return droite(la,new_c,ch+["S"])
         
-    elif nat=="SORTIE":
+    elif nat == "SORTIE":
         return ch
     
     else:
