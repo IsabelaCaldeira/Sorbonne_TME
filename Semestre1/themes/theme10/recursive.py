@@ -1,3 +1,5 @@
+from typing import Set, List, T, Dict
+
 #Exercice 10.3 : Revisiter le theme 9
 def diff_sym(ens1 : Set[T], ens2 : Set[T]) -> Set[T]:
     """Utilise une comprehension d'ensemble pour retourner la difference symetrique entre deux ensembles ens1 et ens2"""
@@ -229,5 +231,5 @@ def existence_trajet(carte:Dict[str,Set[str]],depart:str,arrivee:str)->bool:
     return False
 
 
-assert existence_trajet(Grandes_Lignes, 'Paris', 'München')==True
-assert existence_trajet(Grandes_Lignes, 'Ajaccio', 'Bordeaux')==False
+assert existence_trajet(Grandes_Lignes, 'Paris', 'München') == True
+assert existence_trajet(Grandes_Lignes, 'Ajaccio', 'Bordeaux') == False
