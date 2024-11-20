@@ -1,3 +1,5 @@
+from typing import List, Tuple, Dict, Optional
+
 def ouvre_fichier(nom:str)->List[str]:
     """renvoie la liste des lignes du fichier texte ./nom.csv
     """
@@ -19,7 +21,7 @@ exemple1 : List[str] = ['"sport";"date";"participants";"vainqueur"\n',
                         '"echecs";2021-09-24;120;"Bob"\n',
                         '"echecs";2021-10-01;120;"Carole"\n']
 
-#Question 1
+#Partie Guidée Question 1
 def decompose_ligne(li:str,sep:str)->List[str]:
     """Précondition : len(sep)=1
     Renvoie la liste des différentes sous-chaînes de la ligne qui se trouve entre les sep
@@ -40,7 +42,7 @@ assert decompose_ligne(exemple1[0], ";")==['"sport"', '"date"', '"participants"'
 assert decompose_ligne(exemple1[3], ";")==['"karate"', '2021-09-26', '19', '"Carole"']
 assert decompose_ligne(exemple1[3], ",")==['"karate";2021-09-26;19;"Carole"']
 
-#Question 2
+#Partie Guidée Question 2
 def enleve_guillemets(s:str)->str:
     """Renvoie s sans les guillemets ""
     """
@@ -54,7 +56,7 @@ def enleve_guillemets(s:str)->str:
 assert enleve_guillemets('"sport"') == 'sport'
 assert enleve_guillemets('sport') == 'sport'
 
-#Question 3
+#Partie Guidée Question 3
 def enleve_guillemets_ligne(li:List[str])->List[str]:
     """Précondition : li!=[]
     Renvoie la liste correspondant à li dans laquelle on a enlevé les guillements ""
@@ -64,7 +66,7 @@ def enleve_guillemets_ligne(li:List[str])->List[str]:
 assert enleve_guillemets_ligne(['"sport"', '"date"', '"participants"', '"vainqueur"'])==['sport', 'date', 'participants', 'vainqueur']
 assert enleve_guillemets_ligne(['"karate"', '2021-09-26', '19', '"Carole"'])==['karate', '2021-09-26', '19', 'Carole']
 
-#Question 4
+#Partie Guidée Question 4
 def lignes_propres(lis:List[str],sep:str)->List[List[str]]:
     """Précondition : len(sep)=1
     renvoie la décomposition de chacune des lignes de lis dans laquelle on a enlevé les guillemets qui entoure chaque élément
@@ -85,7 +87,7 @@ assert lignes_propres(exemple1,";")==[['sport', 'date', 'participants', 'vainque
                                       ['echecs', '2021-09-24', '120', 'Bob'],
                                       ['echecs', '2021-10-01', '120', 'Carole']]
 
-#Question 5
+#Partie Guidée Question 5
 def cherche_indice(e:str,li:List[str])->Optional[int]:
     """Précondition : len(e)=1 et li!=[]
     renvoie le premier indice de li auquel apparaît e si c'est le cas, et None sinon
@@ -99,8 +101,8 @@ assert cherche_indice("sport", ['sport', 'date', 'participants', 'vainqueur'])==
 assert cherche_indice("vainqueur", ['sport', 'date', 'participants', 'vainqueur'])==3
 assert cherche_indice("deces", ['sport', 'date', 'participants', 'vainqueur'])==None
 
-#Question 6
-def dictionnaire_compte(lis:List[List[str]],clef:str)->Dict[str,int]:
+#Partie Guidée Question 6
+def dictionnaire_compte(lis:List[List[str]],clef:str)-> Dict[str,int]:
     """Précondition : lis!=[]
     Renvoie un dictionnaire dont les clefs sont les données de la colonne clef du fichier et les valeurs sont leur nombre d'occurences
     """
@@ -116,10 +118,11 @@ def dictionnaire_compte(lis:List[List[str]],clef:str)->Dict[str,int]:
     return res
         
 lignes_ex1 : List[List[str]] = lignes_propres(exemple1 , ";")
+
 assert dictionnaire_compte(lignes_ex1 , "vainqueur")=={'Alice': 4, 'Carole': 4, 'Bob': 3, 'Damien': 1}
 assert dictionnaire_compte(lignes_ex1 , "sport")=={'boxe': 5, 'karate': 3, 'tennis': 1, 'echecs': 3}
 
-#Question 7
+#Partie Guidée Question 7
 def dictionnaire_somme(lis:List[List[str]],clef:str,valeur:str)->Dict[str,int]:
     """Précondition : lis!=[]
     Renvoie un dictionnaire dont les clefs sont les données de la colonne clef du fichier et la valeur associée à la clef k est la somme des données de la colonne valeur des lignes où k apparaît dans la colonne clef
@@ -145,6 +148,48 @@ def dictionnaire_somme(lis:List[List[str]],clef:str,valeur:str)->Dict[str,int]:
     return res
 
 assert dictionnaire_somme(lignes_ex1,"sport","participants")=={'boxe': 41, 'karate': 59, 'tennis': 3, 'echecs': 360}
+
+#Partie Guidée Ensuite 
+def tri_dico(dico:Dict[str,int])-> List[Tuple[str,int]]:
+    """PreDico != vide
+    Renvoie la façon decroissant des valeurs du dictionnaire"""
+    list_dico : List[Tuple[str,int]] = [(k, v) for k, v in dico.items()]
+    
+    for i in range(1,len(list_dico)):
+        cle : Tuple[str,int] = list_dico[i]
+        j : int = i-1 
+        cle0, cle1 = cle
+        cle0j, cle1j = list_dico[j]
+        while j >= 0 and cle1 > cle1j:
+            list_dico[j+1] = list_dico[j]
+            j = j - 1
+            cle0j_temp, cle1j_temp = list_dico[j]
+            cle1j = cle1j_temp
+            list_dico[j+1] = cle
+    return list_dico
+
+
+def classement(dico:Dict[str,int])-> str:
+    """Renvoie un classement des vainqueurs"""
+    list_dec: List[Tuple[str, int]] = tri_dico(dico)
+    temp : int = 0
+    res : str = ''
+    compt : int = 1
+    for personne, victories in list_dec:
+        if victories == temp and compt != 1:
+            res = res + ' et '+ personne 
+        if compt == 1:
+            res = '1° place ' + personne
+            compt = compt + 1
+            temp = victories
+        if victories != temp:
+            temp = victories
+            res = res + '\n' + str(compt) + '° place ' + personne 
+            compt = compt + 1
+            
+    return res
+
+print(classement(dictionnaire_compte(lignes_ex1 , "sport")))
 
 #2 Suggestion : Courbes temporelles
 def annee(date:str)->List[int]:
@@ -209,7 +254,6 @@ def convertir_dico(dico:Dict[str,int])->Dict[int,int]:
     return res
 
 
-
 def convertir_tuple(dico:Dict[str,int])->List[Tuple[int,int]]:
     """Convertit le dictionnaire en une liste d’associations
     """
@@ -234,7 +278,7 @@ def trier(l: List[Tuple[int,int]]) -> List[Tuple[int,int]]:
 
 
 
-def trace(l : List[Tuple[int, int]]) -> Image :
+'''def trace(l : List[Tuple[int, int]]) -> Image :
     """On trace maintenant le grafique representant l'affluence aux tournois"""
     dur : List[int] = [m for m,_ in l]
     nb : List[int] = [t for _,t in l]
@@ -264,4 +308,4 @@ def trace(l : List[Tuple[int, int]]) -> Image :
 
 donnees : List[Tuple[int, int]] = trier(convertir_tuple(dictionnaire_somme(lignes_propres(exemple1 , ";"),"date","participants")))
 
-#show_image(trace(donnees))
+#show_image(trace(donnees))'''
