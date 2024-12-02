@@ -90,15 +90,8 @@ def minter_dict(m1:Dict[str,int], m2:Dict[str,int]) ->Dict[str,int]:
     res: Dict[str,int] = dict()
     i :str
     for i in m1:
-        j:str
-        for j in m2:
-            if j == i:
-                if m1[i] < m2[i]:
-                    res[i] = m1[i]
-                elif m1[i] > m2[i]:
-                    res[i] = m2[i]
-                else:
-                    res[i] = m1[i]
+        if i in m2:
+            res[i] = min(m1[i], m2[i])
     return res
         
 assert minter_dict({'a':2, 'b':4, 'c':3},{'f':1, 'a':1, 'b':3}) == {'b': 3, 'a': 1}
