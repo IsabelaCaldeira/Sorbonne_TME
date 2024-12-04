@@ -1,3 +1,4 @@
+from typing import List
 #Partie Guidée : Le Tic-Tac-Toe
 CaseT = str
 # les elements de CaseT sont soit " " soit "O" soit "X"
