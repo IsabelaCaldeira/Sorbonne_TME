@@ -2,8 +2,7 @@
 #include <math.h> 
 
 int discriminant(int a, int b, int c){
-    int d = (b*b) -(4*a*c);
-    return d;
+    return (b*b) -(4*a*c);
 }
 
 int afficheRacines(int a, int b, int c){
