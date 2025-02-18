@@ -2,8 +2,8 @@
 
 int tarif(int age, char situ){
     if (age < 18) return 0;
-    else if((situ == 'e' && age < 25) || (situ == 'd') || (age >= 65)) return 8;
-    else return 10;
+    else if((situ == 'e' && age < 25) || (situ == 'd') || (age >= 65)) return 1;
+    else return 2;
 }
 
 int main() {
