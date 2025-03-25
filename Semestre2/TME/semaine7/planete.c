@@ -10,6 +10,14 @@ struct planete
 
 typedef struct planete planete;
 
+/* Autre option
+typedef struct{
+   char nom[10];
+   float densite;
+   float distance;
+   int nbsat;
+}planete;
+*/
 
 void affichePlanete(planete p){
    printf("%s : densite = %.2f, distance soleil = %.1f, nb satellites = %d\n", p.nom, p.densite, p.distance, p.nbsat);
