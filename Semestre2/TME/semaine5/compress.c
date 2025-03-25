@@ -16,8 +16,7 @@ void affiche_tab(int tab[]){
   printf("\n");
 }
 void compress_tab(int tab_brut[], int tab_compress[]) {
-	int compteur = 1;
-	int i = 0, j = 0;
+	int compteur = 1, i = 0, j = 0;
 	
 	while (tab_brut[i] != -1){
 		if (tab_brut[i] == tab_brut[i + 1]) compteur++;
@@ -31,7 +30,7 @@ void compress_tab(int tab_brut[], int tab_compress[]) {
 		}
 		i++;
 	}
-	tab_compress[j++] = -1;
+	tab_compress[j] = -1;
 }
 
 int main() {

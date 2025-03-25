@@ -14,7 +14,7 @@ int signeProduit(int m, int n){
 
 //Question 2 
 int main(){
-    assert(signeProduit(3,3) == 1);
+    assert(signeProduit(3,-3) == -1);
     assert(signeProduit(-1,-2) == 1);
     assert(signeProduit(3,0) == 0);
     return 0;

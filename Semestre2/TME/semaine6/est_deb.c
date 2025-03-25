@@ -22,26 +22,21 @@ int est_incluse(char *chaine1, char *chaine2){
 }
 
 int main() {
-   {
-    printf("%d\n",est_incluse("alpha","alphabet"));;
-   }
-    printf("%s\n", SEPARATOR);   {
-    printf("%d\n",est_incluse("alpaga","alphabet"));;
-   }
-    printf("%s\n", SEPARATOR);   {
-    printf("%d\n",est_incluse("abe","alphabet"));;
-   }
-    printf("%s\n", SEPARATOR);   {
-    printf("%d\n",est_incluse("beta","alphabet"));;
-   }
-    printf("%s\n", SEPARATOR);   {
-    printf("%d\n",est_incluse("","alphabet"));;
-   }
-    printf("%s\n", SEPARATOR);   {
-    printf("%d\n",est_incluse("bet","alphabet"));;
-   }
-    printf("%s\n", SEPARATOR);   {
-    printf("%d\n",est_incluse("ber","alphabet"));;
-   }
-        return 0;
-}
+    {
+     printf("%d\n",est_deb("alpha","alphabet"));;
+    }
+     printf("%s\n", SEPARATOR);   {
+     printf("%d\n",est_deb("alpaga","alphabet"));;
+    }
+     printf("%s\n", SEPARATOR);   {
+     printf("%d\n",est_deb("aaaaaaaaa","aaaaaaaaa"));;
+    }
+     printf("%s\n", SEPARATOR);   {
+     printf("%d\n",est_deb("aaaaaaaaa","aaaaaaaab"));;
+    }
+     printf("%s\n", SEPARATOR);   {
+     printf("%d\n",est_deb("","aaaaaaaaa"));;
+    }
+         return 0;
+ }
+ 

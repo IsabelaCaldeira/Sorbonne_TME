@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <math.h>
 #define SEPARATOR "#<ab@17943918#@>#"
-
 void affiche_tab(int tab[]){
   int i=0;
 

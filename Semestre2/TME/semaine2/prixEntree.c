@@ -30,7 +30,7 @@ int main(){
 	
 	scanf("%d", &nb_a);
 	scanf("%d", &nb_e);
-	printf("(%d adulte(s), %d enfant(s)) = %.2f livres\n", nb_a, nb_e, prixEntree(nb_a,nb_e));
+	printf("(%d adultes, %d enfants) = %.2f livres\n", nb_a, nb_e, prixEntree(nb_a,nb_e));
 	
 	return 0;
 }

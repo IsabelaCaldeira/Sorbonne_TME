@@ -12,14 +12,11 @@ cellule_t* maximum(cellule_t *liste){
     cellule_t *max = liste;
     
     while (current != NULL) {
-        if (current->donnee > max->donnee) {
-            max = current;
-        }
+        if (current->donnee > max->donnee) max = current;
         current = current->suivant;
     }
     
     return max;
-
 }
 
 int main() {

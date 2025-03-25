@@ -11,9 +11,7 @@ int tous_plus_grands(int val, cellule_t* liste) {
     cellule_t* current = liste;
     
     while (current != NULL) {
-        if (current->donnee < val) {
-            return 0;
-        }
+        if (current->donnee < val) return 0;
         current = current->suivant;
     }
     

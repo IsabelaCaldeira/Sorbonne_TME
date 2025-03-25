@@ -1,5 +1,5 @@
 import math
-from typing import Callable, List, Tuple, T, U
+from typing import Callable, List, Tuple, T, U, V 
 #Exercice 11.4 Question 1
 def f_fun(x: float) -> float:
     """Précondition:

@@ -20,7 +20,12 @@ int recherche_rec_aux(int tab[], int taille, int indice, int elem){
         if(indice == taille) return -1;
         else return recherche_rec_aux(tab, taille, indice + 1, elem);
     }
-    
+}
+
+int recherche_rec1(int *tab, int taille, int val){
+    if(tab[taille-1] == val) return -1;
+    if(taille == 0) return -1;
+    return recherche_rec1(tab, taille-1, val);
 }
 
 int recherche_rec(int *tab, int taille, int elem){

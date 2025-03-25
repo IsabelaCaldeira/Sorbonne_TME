@@ -29,11 +29,15 @@ int pos_neg_zero(int fois, int min, int max){
 }
 
 int main(){
+   int i, val;
+   ...
+   
+   printf("Saisissez une suite de %d valeurs\n", NB_VALEURS);
+   for (i = 0; i < NB_VALEURS; i++) {
+      scanf("%d", &val);
+      pos_neg_zero(val,...);
+   }
   
-    /* initialisation du générateur de nombres aléatoires */
-    srand(time(NULL));
-    
-    pos_neg_zero(NB_VALEURS, VMIN, VMAX);
-    
-    return 0;
+   printf("%d valeurs negatives, %d valeurs positives, %d valeurs nulles.\n", ...);  
+   return 0;
 }

@@ -7,10 +7,9 @@
 #define SEPARATOR "#<ab@17943918#@>#"
 
 int compte_mots(char *s){
-    int i;
     char temp = ' ';
     int compt = 0;
-    for (i = 0; s[i] != '\0'; i++){
+    for (int i = 0; s[i] != '\0'; i++){
         if (s[i] != ' ' && temp == ' ') compt ++;
         temp = s[i];
     }

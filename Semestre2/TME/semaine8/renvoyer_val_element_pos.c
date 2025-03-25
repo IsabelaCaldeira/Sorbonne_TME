@@ -9,16 +9,13 @@ struct _cellule_t {
 
 int renvoyer_val_element_pos(int pos, cellule_t* liste){
     cellule_t* current = liste;
-    int i = 0;
+    int compteur = 0;
     
-    while (current != NULL) {
-        if (i == pos) {
-            return current->donnee;
-        }
-        current = current->suivant;
-        i++;
+    while(current != NULL){
+        if(compteur == pos) return current -> donnee;
+        current = current -> suivant;
+        compteur++;
     }
-    
     return -1;
 }
 

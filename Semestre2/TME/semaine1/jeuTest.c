@@ -32,5 +32,4 @@ int main() {
     printf("%d \n",alternative(7,10,9));
 
     return 0; 
-    
 }
