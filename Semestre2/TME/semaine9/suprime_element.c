@@ -59,27 +59,24 @@ element_t *CreationMultiEnsemble(int n){
   return liste;
 }
 
-element_t *Supprime_total_element_ensemble_trie(element_t *ensemble, int val) {
-    element_t *current = ensemble;
-    element_t *prev = NULL;
-
-    while (current != NULL) {
-        if (current->valeur == val) {
-            if (prev == NULL) {
-                ensemble = current->suivant;
-            } else {
-                prev->suivant = current->suivant;
-            }
-            element_t *temp = current;
-            current = current->suivant;
-            free(temp);
-        } else {
-            prev = current;
-            current = current->suivant;
-        }
-    }
-
-    return ensemble;
+element_t *Supprime_element(element_t * ensemble, int val) {
+  element_t *current = ensemble;
+  element_t *prev = NULL;
+  
+  while(current){
+      if(current -> valeur == val){
+          if(current -> frequence > 1) current -> frequence --;
+          else{
+              if(prev) prev -> suivant = current -> suivant;
+              else ensemble = current -> suivant;
+              free(current);
+          }
+          break;
+      }
+      prev = current;
+    current = current -> suivant;
+  }
+  return ensemble;
 }
 
 int main() {

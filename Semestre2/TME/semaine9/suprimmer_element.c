@@ -58,32 +58,20 @@ void Affiche_ensemble(element_t *ensemble)
     }
 }
 
-element_t *Supprime_total_element(element_t *ensemble, int val)
-{
+element_t *Supprime_total_element(element_t * ensemble, int val) {
     element_t *current = ensemble;
-    element_t *previous = NULL;
-
-    // Parcourir la liste jusqu'à trouver l'élément à supprimer
-    while (current != NULL)
-    {
-        if (current->valeur == val)
-        {
-            // Si l'élément à supprimer est en tête de liste
-            if (previous == NULL)
-            {
-                ensemble = current->suivant;
-            }
-            else
-            {
-                previous->suivant = current->suivant;
-            }
+    element_t *prev = NULL;
+    
+    while(current){
+        if(current -> valeur == val){
+            if(!prev) ensemble = current -> suivant;
+            else prev-> suivant = current-> suivant;
             free(current);
             break;
         }
-        previous = current;
-        current = current->suivant;
+        prev = current;
+        current = current -> suivant;
     }
-
     return ensemble;
 }
 

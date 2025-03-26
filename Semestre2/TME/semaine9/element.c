@@ -31,13 +31,11 @@ element_t *Ajout_tete_ensemble(element_t *ensemble, int val, int freq)
     element_t *ptr;
 
     ptr = Recherche_val2(ensemble, val);
-    if (ptr != NULL)
-    {
+    if (ptr != NULL){
         ptr->frequence = ptr->frequence + freq;
         return ensemble;
     }
-    else
-    {
+    else{
         ptr = malloc(sizeof(element_t));
         ptr->valeur = val;
         ptr->frequence = freq;
