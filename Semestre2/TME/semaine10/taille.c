@@ -10,14 +10,10 @@ struct _element_t
     element_t *suivant;
 };
 
-int taille(element_t *ens)
-{
-    if (ens == NULL)
-    {
-        return 0;
-    }
-    return ens->frequence + taille(ens->suivant);
-}
+int taille(element_t* ens) {
+    if(!ens) return 0;
+    return ens->frequence + taille(ens ->suivant);
+ }
 
 int main()
 {
