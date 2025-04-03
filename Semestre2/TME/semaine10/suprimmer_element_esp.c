@@ -10,36 +10,24 @@ struct _element_t
     element_t *suivant;
 };
 
-element_t *supprime_frequence_inf_seuil(element_t *ens, int seuil)
-{
-    element_t *courant = ens;
-    element_t *precedent = NULL;
-
-    while (courant != NULL)
-    {
-        if (courant->frequence < seuil)
-        {
-            if (precedent == NULL)
-            {
-                ens = courant->suivant;
-            }
-            else
-            {
-                precedent->suivant = courant->suivant;
-            }
-            element_t *temp = courant;
-            courant = courant->suivant;
-            free(temp);
-        }
-        else
-        {
-            precedent = courant;
-            courant = courant->suivant;
+element_t* supprime_frequence_inf_seuil(element_t* ens, int seuil) {
+    element_t *courrant = ens;
+    element_t * prec = NULL;
+    while(courrant){
+        if(courrant -> frequence < seuil){
+            if(!prec) ens = courrant -> suivant;
+            else prec -> suivant = courrant -> suivant;
+            element_t *supprime = courrant;
+            courrant = courrant -> suivant;
+            free(supprime);
+        }else{
+            prec = courrant;
+            courrant = courrant -> suivant;
         }
     }
-
     return ens;
 }
+
 int main()
 {
     int n, s;
