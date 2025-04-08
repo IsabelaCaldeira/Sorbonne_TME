@@ -12,25 +12,19 @@ struct _element_t
 
 int inclus_rec(element_t *ens1, element_t *ens2)
 {
-    if (ens1 == NULL)
-        return 1;
+    if (ens1 == NULL) return 1;
 
-    if (ens2 == NULL)
-        return 0;
+    if (ens2 == NULL) return 0;
 
-    if (ens1->valeur < ens2->valeur)
-        return 0;
+    if (ens1->valeur < ens2->valeur) return 0;
 
-    if (ens1->valeur == ens2->valeur)
-    {
-        if (ens1->frequence > ens2->frequence)
-            return 0;
+    if (ens1->valeur == ens2->valeur){
+        if (ens1->frequence > ens2->frequence) return 0;
 
         return inclus_rec(ens1->suivant, ens2->suivant);
     }
 
     return inclus_rec(ens1, ens2->suivant);
-
 }
 
 int main()
