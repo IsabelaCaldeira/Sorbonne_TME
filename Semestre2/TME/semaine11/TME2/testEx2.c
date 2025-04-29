@@ -14,6 +14,7 @@ int main() {
   afficherListe(frequenceCaracteres(chaine));
   listeCaracteres = ajouterCaractereTete('h', 0, listeCaracteres);
   afficherListe(listeCaracteres);
-  supprimeZero(listeCaracteres);
+  listeCaracteres = supprimeZero(listeCaracteres);
+  afficherListe(listeCaracteres);
   return 0;
 }

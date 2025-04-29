@@ -90,7 +90,7 @@ caractere *supprimeZero(caractere *listeCaracteres){
       courrant = courrant->suivant;
       free(temp);
     }else{
-      pred -> suivant = courrant;
+      pred = courrant;
       courrant = courrant -> suivant;
     }
   }
