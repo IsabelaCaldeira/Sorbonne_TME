@@ -8,7 +8,7 @@ caractere* ajouterCaractereTete(char c, int freq, caractere* listeCaracteres){
   caractere* new = malloc(sizeof(caractere));
   new-> caract = c;
   new-> frequence = freq;
-  new -> suivant = listeCaracteres;
+  new-> suivant = listeCaracteres;
   return new;
 }
 
