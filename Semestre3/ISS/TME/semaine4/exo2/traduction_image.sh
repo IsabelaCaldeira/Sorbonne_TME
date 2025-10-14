@@ -1,0 +1,1 @@
+[ $(( $RANDOM % 6)) -eq 0 ] && echo You lost everything / || echo "Lucky boy"

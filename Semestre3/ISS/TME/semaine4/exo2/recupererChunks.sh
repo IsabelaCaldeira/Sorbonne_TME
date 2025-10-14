@@ -1,0 +1,1 @@
+cat chunks/data.{0..9}{0..9} > chunks.txt
